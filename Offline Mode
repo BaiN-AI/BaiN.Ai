@@ -1,0 +1,81 @@
+
+Step-by-Step Guide to Using BaiN.Ai Offline
+1️⃣ Install Prerequisites
+Ensure you have the following installed on your system:
+✅ Node.js (v16 or later) → Download Here
+✅ npm (Comes with Node.js)
+✅ Git (Optional, for cloning the repository)
+
+2️⃣ Clone the Repository
+sh
+Copy
+Edit
+git clone https://github.com/your-org/BaiN.Ai.git
+cd BaiN.Ai
+3️⃣ Install Dependencies
+sh
+Copy
+Edit
+npm install
+This will install all required packages from the package.json file.
+
+4️⃣ Configure Environment Variables
+Create a .env file in the project root and add the required configurations:
+
+env
+Copy
+Edit
+PORT=3000
+SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+AI_MODEL_PATH=./models
+5️⃣ Start the Server
+To start the BaiN.Ai bot:
+
+sh
+Copy
+Edit
+npm start
+For development mode (auto-reload on changes):
+
+sh
+Copy
+Edit
+npm run dev
+6️⃣ Verify the API is Running
+Once the server starts, test it by visiting:
+🔗 http://localhost:3000/
+
+You should see:
+
+json
+Copy
+Edit
+{
+  "message": "BaiN.Ai Anti-Sniping API is running"
+}
+To check API status:
+
+sh
+Copy
+Edit
+curl http://localhost:3000/api/v1/status
+Expected Response:
+
+json
+Copy
+Edit
+{
+  "status": "active",
+  "uptime": 1234.56
+}
+7️⃣ Running Tests (Optional)
+To ensure everything is working, run:
+
+sh
+Copy
+Edit
+npm test
+🎯 Next Steps
+Integrate it with Solana blockchain monitoring.
+Deploy using Docker (docker build -t bain-ai . && docker run -p 3000:3000 bain-ai).
+Customize the AI detection models.
