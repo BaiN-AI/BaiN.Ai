@@ -1,0 +1,14 @@
+// blockchain-service.js
+const { ethers } = require('ethers');
+
+class BlockchainObserver {
+  constructor(rpcUrl) {
+    this.provider = new ethers.providers.JsonRpcProvider(rpcUrl);
+    this.watchers = new Map();
+  }
+
+  async watchAddress(address) {
+    const filter = { address };
+    this.provider.on(filter, (tx) => this.handleTransaction(tx));
+  }
+}
