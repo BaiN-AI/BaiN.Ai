@@ -1,0 +1,17 @@
+name: Production Deployment
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: npm ci
+      - run: npm test
+      - uses: docker/build-push-action@v3
+        with:
+          tags: user/bain-ai:latest
+          push: true
