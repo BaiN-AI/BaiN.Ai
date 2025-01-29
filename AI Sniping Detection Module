@@ -1,0 +1,19 @@
+// ai-monitoring.js
+const { analyzeTransaction } = require('./ai-model');
+
+class SnipingDetector {
+  constructor(blockchainNetwork) {
+    this.network = blockchainNetwork;
+  }
+
+  async monitorTransaction(txHash) {
+    const txData = await this.fetchTransaction(txHash);
+    const prediction = await analyzeTransaction(txData);
+    
+    return {
+      riskScore: prediction.score,
+      threatType: prediction.threat_class,
+      recommendedAction: prediction.score > 0.7 ? 'BLOCK' : 'ALLOW'
+    };
+  }
+}
