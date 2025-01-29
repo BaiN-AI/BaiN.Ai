@@ -1,0 +1,8 @@
+// test/blockchain.test.js
+describe('Blockchain Integration', () => {
+  test('should detect sandwich attack', async () => {
+    const maliciousTx = generateMaliciousTx();
+    const analysis = await detector.analyze(maliciousTx);
+    expect(analysis.threatType).toBe('SANDWICH_ATTACK');
+  });
+});
