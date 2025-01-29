@@ -1,0 +1,10 @@
+// public/dashboard.js
+const socket = io();
+socket.on('new-transaction', (txData) => {
+  renderTransactionCard(txData);
+});
+
+function renderRiskVisualization(riskScore) {
+  const gauge = new RadialGauge({ /* ... */ });
+  gauge.value = riskScore;
+}
